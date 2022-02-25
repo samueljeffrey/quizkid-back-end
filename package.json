@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "test": "NODE_ENV=development mocha --recursive --exit --timeout 10000",
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
