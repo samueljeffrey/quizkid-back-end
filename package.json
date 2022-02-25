@@ -1,17 +1,12 @@
 {
   "scripts": {
-    "test": "mocha",
-    "start": "node app.ts"
+    "test": "NODE_ENV=development mocha --recursive --exit --timeout 10000",
+    "start": "node app.js"
   },
   "dependencies": {
-    "chai": "^4.3.6",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "mongoose": "^6.2.3"
-  },
-  "devDependencies": {
-    "mocha": "^9.2.1",
-    "supertest": "^6.2.2"
   }
 }

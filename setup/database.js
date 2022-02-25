@@ -6,7 +6,7 @@ const connectDB = () => {
     .then(() => {
       console.log("MongoDB Connected");
     })
-    .catch((error?: object) => {
+    .catch((error) => {
       console.log(error);
     });
 };
@@ -17,7 +17,7 @@ const closeDB = () => {
     .then(() => {
       console.log("MongoDB Closed");
     })
-    .catch((error?: object) => {
+    .catch((error) => {
       console.log(error);
     });
 };
