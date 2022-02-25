@@ -3,13 +3,11 @@ const cors = require("cors");
 const { connectDB } = require("./setup/database.js");
 const app = express();
 const dotenv = require("dotenv");
-const router = require("./routers/api-router.js");
+const apiRouter = require("./routers/api-router.js");
 const errors = require("./errors/errors.js");
 
-console.log(process.env.PORT);
-
 dotenv.config({
-  path: "./.env",
+  path: ".env.development",
 });
 
 connectDB();
@@ -18,10 +16,10 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.status(200).send({ message: "Connected to MongoDB" });
+  res.status(200).send({ message: "Connected to API" });
 });
 
-// app.use("/api", router);
+app.use("/api", apiRouter);
 
 // app.all("*", (req, res, next) => {
 //   next({
@@ -30,7 +28,7 @@ app.get("/", (req, res) => {
 //   });
 // });
 
-app.use(errors);
+// app.use(errors);
 
 const PORT = process.env.PORT || 3000;
 
