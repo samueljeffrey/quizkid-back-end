@@ -15,8 +15,23 @@ exports.postQuiz = (req, res, next) => {
     });
 };
 
+exports.patchQuiz = (req, res, next) => {
+  updateQuiz(req.params.quizId, req.body)
+    .then((response) => {
+      res.status(200).send({ data: response });
+    })
+    .catch((err) => {
+      if (err === "malformed") {
+        res.status(400).send({
+          error:
+            "Request body must contain keys 'plays' and 'average' with numberical values",
+        });
+      } else {
+        res.status(404).send({ error: "Quiz not found" });
+      }
+    });
+};
+
 exports.getQuizzes = (req, res, next) => {};
 
 exports.getQuiz = () => {};
-
-exports.patchQuiz = () => {};
