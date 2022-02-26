@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const Quiz = require("./schemas/quiz-schema.js");
-const mockQuizzes = require("./mockData/mock-quizzes.json");
+const mockQuizzes = require("../mockData/mock-quizzes.json");
 
 dotenv.config({
   path: ".env.development",

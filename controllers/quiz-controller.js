@@ -5,7 +5,7 @@ const {
   insertQuiz,
 } = require("../models/quiz-model.js");
 
-exports.getQuizzes = (req, res, next) => {
+exports.postQuiz = (req, res, next) => {
   console.log("in quizzes controller");
   insertQuiz(req.body)
     .then((response) => {
@@ -13,13 +13,12 @@ exports.getQuizzes = (req, res, next) => {
       res.status(201).send({ data: response });
     })
     .catch((err) => {
-      console.log("back in controller (failure)");
-      res.status(400).send({ message: "failed" });
+      res.status(400).send({ error: err });
     });
 };
 
-exports.getQuiz = () => {};
+exports.getQuizzes = (req, res, next) => {};
 
-exports.postQuiz = () => {};
+exports.getQuiz = () => {};
 
 exports.patchQuiz = () => {};

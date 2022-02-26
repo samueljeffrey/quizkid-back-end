@@ -23,4 +23,4 @@ const QuizSchema = mongoose.Schema({
   average: { type: Number, default: 0 },
 });
 
-module.exports = Quiz = mongoose.model("Quiz", QuizSchema);
+module.exports = Quiz = mongoose.model("quizzes", QuizSchema);

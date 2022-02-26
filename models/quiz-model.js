@@ -6,12 +6,13 @@ exports.insertQuiz = (body) => {
   return newQuiz
     .save()
     .then((response) => {
+      console.log(response);
       console.log("leaving quizzes model (success)");
       return response;
     })
     .catch((err) => {
       console.log("leaving quizzes model (failure)");
-      return err;
+      return Promise.reject(err);
     });
 };
 
