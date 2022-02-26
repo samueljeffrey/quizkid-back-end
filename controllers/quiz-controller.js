@@ -6,10 +6,8 @@ const {
 } = require("../models/quiz-model.js");
 
 exports.postQuiz = (req, res, next) => {
-  console.log("in quizzes controller");
   insertQuiz(req.body)
     .then((response) => {
-      console.log("back in controller (success)");
       res.status(201).send({ data: response });
     })
     .catch((err) => {
