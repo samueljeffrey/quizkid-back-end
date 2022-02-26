@@ -24,7 +24,7 @@ exports.patchQuiz = (req, res, next) => {
       if (err === "malformed") {
         res.status(400).send({
           error:
-            "Request body must contain keys 'plays' and 'average' with numberical values",
+            "Request body must contain keys 'plays' and 'average' with numerical values",
         });
       } else {
         res.status(404).send({ error: "Quiz not found" });
