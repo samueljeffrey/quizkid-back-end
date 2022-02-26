@@ -43,7 +43,15 @@ exports.findQuiz = (id) => {
 };
 
 exports.findQuizzes = (query) => {
-  if (!query.category) return Promise.reject();
+  if (!query.category) {
+    return Quiz.find()
+      .then((response) => {
+        return response;
+      })
+      .catch((err) => {
+        return Promise.reject();
+      });
+  }
 
   return Quiz.find({ category: query.category })
     .then((response) => {
