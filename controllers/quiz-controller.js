@@ -42,4 +42,16 @@ exports.getQuiz = (req, res, next) => {
     });
 };
 
-exports.getQuizzes = (req, res, next) => {};
+exports.getQuizzes = (req, res, next) => {
+  findQuizzes(req.query)
+    .then((response) => {
+      if (!response.length) {
+        res.status(404).send({ data: "No quizzes found" });
+      } else {
+        res.status(200).send({ data: response });
+      }
+    })
+    .catch(() => {
+      res.status(400).send({ error: "Query can only be for 'category'" });
+    });
+};

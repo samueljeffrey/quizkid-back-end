@@ -42,4 +42,14 @@ exports.findQuiz = (id) => {
     });
 };
 
-exports.findQuizzes = () => {};
+exports.findQuizzes = (query) => {
+  if (!query.category) return Promise.reject();
+
+  return Quiz.find({ category: query.category })
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => {
+      return Promise.reject();
+    });
+};
