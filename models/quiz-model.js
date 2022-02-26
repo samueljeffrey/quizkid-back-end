@@ -5,7 +5,7 @@ exports.insertQuiz = (body) => {
   return newQuiz
     .save()
     .then((response) => {
-      return Promise.resolve(response);
+      return response;
     })
     .catch((err) => {
       return Promise.reject(err);
@@ -25,7 +25,7 @@ exports.updateQuiz = (id, body) => {
     average: body.average,
   })
     .then((response) => {
-      return Promise.resolve(response);
+      return response;
     })
     .catch((err) => {
       return Promise.reject(err);
@@ -35,7 +35,7 @@ exports.updateQuiz = (id, body) => {
 exports.findQuiz = (id) => {
   return Quiz.findById(id)
     .then((response) => {
-      return Promise.resolve(response);
+      return response;
     })
     .catch((err) => {
       return Promise.reject(err);
@@ -46,7 +46,7 @@ exports.findQuizzes = (query) => {
   if (!query.category) {
     return Quiz.find()
       .then((response) => {
-        return Promise.resolve(response);
+        return response;
       })
       .catch((err) => {
         return Promise.reject();
@@ -55,7 +55,7 @@ exports.findQuizzes = (query) => {
 
   return Quiz.find({ category: query.category })
     .then((response) => {
-      return Promise.resolve(response);
+      return response;
     })
     .catch((err) => {
       return Promise.reject();
