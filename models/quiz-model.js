@@ -32,6 +32,14 @@ exports.updateQuiz = (id, body) => {
     });
 };
 
-exports.findQuiz = () => {};
+exports.findQuiz = (id) => {
+  return Quiz.findById(id)
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => {
+      return Promise.reject(err);
+    });
+};
 
 exports.findQuizzes = () => {};
