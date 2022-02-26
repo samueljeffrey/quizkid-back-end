@@ -32,6 +32,14 @@ exports.patchQuiz = (req, res, next) => {
     });
 };
 
-exports.getQuizzes = (req, res, next) => {};
+exports.getQuiz = (req, res, next) => {
+  findQuiz(req.params.quizId)
+    .then((response) => {
+      res.status(200).send({ data: response });
+    })
+    .catch((err) => {
+      res.status(404).send({ message: "Quiz not found" });
+    });
+};
 
-exports.getQuiz = () => {};
+exports.getQuizzes = (req, res, next) => {};
