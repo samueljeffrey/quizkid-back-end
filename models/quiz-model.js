@@ -45,6 +45,7 @@ exports.findQuiz = (id) => {
 exports.findQuizzes = (query) => {
   if (!query.category) {
     return Quiz.find()
+      .sort({ created: "descending" })
       .then((response) => {
         return response;
       })
