@@ -44,7 +44,7 @@ exports.findQuiz = (id) => {
 
 exports.findQuizzes = (query) => {
   if (!query.category) {
-    return Quiz.find({ $orderby: { created: 1 } })
+    return Quiz.find()
       .then((response) => {
         return response;
       })
